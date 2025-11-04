@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: system-ui, sans-serif;
   background: #f4f4f4;
   text-align: center;
   padding: 2em;
@@ -7,8 +7,19 @@ body {
 
 button {
   cursor: pointer;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 6px;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
 }
 
+button:hover {
+  background-color: #45a049;
+}
+
+/* ===== DIALOG STYLING ===== */
 dialog {
   border: none;
   border-radius: 10px;
@@ -17,15 +28,20 @@ dialog {
 }
 
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 input[type="text"],
 input[type="number"] {
   width: 80%;
-  padding: 0.4em;
+  padding: 0.5em;
   border-radius: 5px;
   border: 1px solid #aaa;
+}
+
+::placeholder {
+  color: #888;
+  opacity: 1;
 }
 
 .form-buttons {
@@ -34,40 +50,22 @@ input[type="number"] {
   gap: 1em;
 }
 
-#library {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1em;
-  margin-top: 1em;
-}
-
-.book-card {
-  background: white;
-  border-radius: 10px;
-  padding: 1em;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  width: 200px;
-}
-
-.book-card button {
-  margin: 0.25em;
-}
-
-/* Table styling */
+/* ===== TABLE ===== */
 table {
   margin: 1em auto;
   border-collapse: collapse;
-  width: 80%;
+  width: 85%;
   background: white;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
 th, td {
   border: 1px solid #ccc;
-  padding: 0.5em;
+  padding: 0.6em;
 }
 
 th {
   background: #eee;
 }
+
+

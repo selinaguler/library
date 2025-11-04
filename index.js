@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-// Book constructor
+// ===== Book Constructor =====
 function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
   this.title = title;
@@ -9,58 +9,22 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-// Prototype method to toggle read status
+// Toggle read status prototype
 Book.prototype.toggleRead = function() {
   this.read = !this.read;
 };
 
-// Add a book to the library array
+// Add new book to array
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
   displayBooks();
 }
 
-// Display all books (both table + cards)
+// ===== Display Books =====
 function displayBooks() {
-  displayBooksCards();
   displayBooksTable();
-}
-
-// ===== CARD VIEW =====
-function displayBooksCards() {
-  const library = document.getElementById("library");
-  library.innerHTML = "";
-
-  myLibrary.forEach(book => {
-    const card = document.createElement("div");
-    card.classList.add("book-card");
-    card.dataset.id = book.id;
-
-    card.innerHTML = `
-      <h3>${book.title}</h3>
-      <p><strong>Author:</strong> ${book.author}</p>
-      <p><strong>Pages:</strong> ${book.pages}</p>
-      <p><strong>Status:</strong> ${book.read ? "Read" : "Not Read"}</p>
-      <button class="toggle-btn">Toggle Read</button>
-      <button class="remove-btn">Remove</button>
-    `;
-
-    // toggle read status
-    card.querySelector(".toggle-btn").addEventListener("click", () => {
-      book.toggleRead();
-      displayBooks();
-    });
-
-    // remove book
-    card.querySelector(".remove-btn").addEventListener("click", () => {
-      const index = myLibrary.findIndex(b => b.id === book.id);
-      myLibrary.splice(index, 1);
-      displayBooks();
-    });
-
-    library.appendChild(card);
-  });
+  displayBooksCards();
 }
 
 // ===== TABLE VIEW =====
@@ -98,7 +62,8 @@ function displayBooksTable() {
   });
 }
 
-// Form & Dialog handling
+
+
 const newBookBtn = document.getElementById("newBookBtn");
 const bookDialog = document.getElementById("bookDialog");
 const closeDialog = document.getElementById("closeDialog");
@@ -108,7 +73,7 @@ newBookBtn.addEventListener("click", () => bookDialog.showModal());
 closeDialog.addEventListener("click", () => bookDialog.close());
 
 bookForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // stop form submission from reloading the page
+  event.preventDefault();
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
   const pages = document.getElementById("pages").value;
@@ -119,6 +84,6 @@ bookForm.addEventListener("submit", (event) => {
   bookDialog.close();
 });
 
-// Example books
+// Example starter books
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
 addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 277, false);

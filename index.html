@@ -2,38 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Library</title>
+  <title>📚 My Library</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>📚 My Library</h1>
 
-  <!-- Button to open the book form -->
   <button id="newBookBtn">➕ New Book</button>
 
-  <!-- Dialog that pops up when adding a new book -->
+  <!-- Dialog (popup form) -->
   <dialog id="bookDialog">
     <form id="bookForm" method="dialog">
       <h3>Add a New Book</h3>
+
       <label>
         Title:<br>
         <input type="text" id="title" placeholder="Enter book title" required>
-      </label>
-      <br><br>
+      </label><br><br>
+
       <label>
         Author:<br>
         <input type="text" id="author" placeholder="Enter author name" required>
-      </label>
-      <br><br>
+      </label><br><br>
+
       <label>
         Pages:<br>
-        <input type="number" id="pages" placeholder="Number of pages" required>
-      </label>
-      <br><br>
+        <input type="number" id="pages" placeholder="Enter number of pages" required>
+      </label><br><br>
+
       <label>
         <input type="checkbox" id="read"> Already read
-      </label>
-      <br><br>
+      </label><br><br>
+
       <div class="form-buttons">
         <button type="submit">Add Book</button>
         <button type="button" id="closeDialog">Cancel</button>
@@ -55,9 +55,7 @@
     <tbody></tbody>
   </table>
 
-  <h2>🧱 Card View</h2>
-  <div id="library"></div>
 
-  <script src="script.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
