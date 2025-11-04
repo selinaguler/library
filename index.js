@@ -62,8 +62,33 @@ function displayBooksTable() {
   });
 }
 
+function displayBooksCards() {
+  const library = document.getElementById("library");
+  library.innerHTML = "";
+
+  myLibrary.forEach(book => {
+    const card = document.createElement("div");
+    card.classList.add("book-card");
+    card.dataset.id = book.id;
 
 
+
+    card.querySelector(".toggle-btn").addEventListener("click", () => {
+      book.toggleRead();
+      displayBooks();
+    });
+
+    card.querySelector(".remove-btn").addEventListener("click", () => {
+      const index = myLibrary.findIndex(b => b.id === book.id);
+      myLibrary.splice(index, 1);
+      displayBooks();
+    });
+
+    library.appendChild(card);
+  });
+}
+
+// ===== Dialog and Form =====
 const newBookBtn = document.getElementById("newBookBtn");
 const bookDialog = document.getElementById("bookDialog");
 const closeDialog = document.getElementById("closeDialog");
